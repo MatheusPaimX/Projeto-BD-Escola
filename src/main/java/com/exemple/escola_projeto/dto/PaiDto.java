@@ -8,17 +8,21 @@ public class PaiDto {
 
     private String enderecoPai;
 
+    private String numeroCasaPai;
+
     private String telefonePai;
 
     private String trabalhoPai;
 
     private String telefoneTrabalhoPai;
 
-    public PaiDto(Long idPai, String nomePai, String enderecoPai, String telefonePai, String trabalhoPai,
+    public PaiDto(Long idPai, String nomePai, String enderecoPai, String numeroCasaPai, String telefonePai,
+            String trabalhoPai,
             String telefoneTrabalhoPai) {
         this.idPai = idPai;
         this.nomePai = nomePai;
         this.enderecoPai = enderecoPai;
+        this.numeroCasaPai = numeroCasaPai;
         this.telefonePai = telefonePai;
         this.trabalhoPai = trabalhoPai;
         this.telefoneTrabalhoPai = telefoneTrabalhoPai;
@@ -46,6 +50,14 @@ public class PaiDto {
 
     public void setEnderecoPai(String enderecoPai) {
         this.enderecoPai = enderecoPai;
+    }
+
+    public String getNumeroCasaPai() {
+        return numeroCasaPai;
+    }
+
+    public void setNumeroCasaPai(String numeroCasaPai) {
+        this.numeroCasaPai = numeroCasaPai;
     }
 
     public String getTelefonePai() {

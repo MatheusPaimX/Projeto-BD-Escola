@@ -8,17 +8,20 @@ public class MaeDto {
 
     private String enderecoMae;
 
+    private String numeroCasaMae;
+
     private String telefoneMae;
 
     private String trabalhoMae;
 
     private String telefoneTrabalhoMae;
 
-    public MaeDto(Long idMae, String nomeMae, String enderecoMae, 
-            String telefoneMae,  String trabalhoMae, String telefoneTrabalhoMae) {
+    public MaeDto(Long idMae, String nomeMae, String enderecoMae, String numeroCasaMae,
+            String telefoneMae, String trabalhoMae, String telefoneTrabalhoMae) {
         this.idMae = idMae;
         this.nomeMae = nomeMae;
         this.enderecoMae = enderecoMae;
+        this.numeroCasaMae = numeroCasaMae;
         this.telefoneMae = telefoneMae;
         this.trabalhoMae = trabalhoMae;
         this.telefoneTrabalhoMae = telefoneTrabalhoMae;
@@ -48,6 +51,14 @@ public class MaeDto {
         this.enderecoMae = enderecoMae;
     }
 
+    public String getNumeroCasaMae() {
+        return numeroCasaMae;
+    }
+
+    public void setNumeroCasaMae(String numeroCasaMae) {
+        this.numeroCasaMae = numeroCasaMae;
+    }
+
     public String getTelefoneMae() {
         return telefoneMae;
     }
@@ -56,7 +67,6 @@ public class MaeDto {
         this.telefoneMae = telefoneMae;
     }
 
-  
     public String getTrabalhoMae() {
         return trabalhoMae;
     }

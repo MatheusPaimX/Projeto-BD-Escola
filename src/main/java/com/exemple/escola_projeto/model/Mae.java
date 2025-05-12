@@ -6,7 +6,6 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
-
 @Entity
 @Table(name = "maes")
 public class Mae {
@@ -24,12 +23,17 @@ public class Mae {
     // @NotBlank(message = "O endereço da mãe é obrigatório")
     private String enderecoMae;
 
+    // @NotBlank(message = "O número da casa da mãe é obrigatório")
+    private String numeroCasaMae;
+
     // @NotBlank(message = "O CEP da mãe é obrigatório")
-    // @Pattern(regexp = "^\\d{5}-\\d{3}$", message = "CEP deve estar no formato 00000-000")
+    // @Pattern(regexp = "^\\d{5}-\\d{3}$", message = "CEP deve estar no formato
+    // 00000-000")
     private String cepMae;
 
     // @NotBlank(message = "O CPF da mãe é obrigatório")
-    // @Pattern(regexp = "^\\d{3}\\.\\d{3}\\.\\d{3}-\\d{2}$", message = "CPF deve estar no formato 000.000.000-00")
+    // @Pattern(regexp = "^\\d{3}\\.\\d{3}\\.\\d{3}-\\d{2}$", message = "CPF deve
+    // estar no formato 000.000.000-00")
     private String cpfMae;
 
     // @NotBlank(message = "O RG da mãe é obrigatório")
@@ -39,18 +43,21 @@ public class Mae {
     private String profissaoMae;
 
     // @NotBlank(message = "O telefone da mãe é obrigatório")
-    // @Pattern(regexp = "^\\(\\d{2}\\) \\d{4}-\\d{4}$", message = "Telefone deve estar no formato (00) 0000-0000")
+    // @Pattern(regexp = "^\\(\\d{2}\\) \\d{4}-\\d{4}$", message = "Telefone deve
+    // estar no formato (00) 0000-0000")
     private String telefoneMae;
 
     // @NotBlank(message = "O e-mail da mãe é obrigatório")
-    // @Pattern(regexp = "^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$", message = "E-mail inválido")
+    // @Pattern(regexp = "^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$", message = "E-mail
+    // inválido")
     private String emailMae;
 
     // @NotBlank(message = "O local de trabalho da mãe é obrigatório")
     private String trabalhoMae;
 
     // @NotBlank(message = "O telefone de trabalho da mãe é obrigatório")
-    // @Pattern(regexp = "^\\(\\d{2}\\) \\d{4}-\\d{4}$", message = "Telefone de trabalho da mãe deve estar no formato (00) 0000-0000")
+    // @Pattern(regexp = "^\\(\\d{2}\\) \\d{4}-\\d{4}$", message = "Telefone de
+    // trabalho da mãe deve estar no formato (00) 0000-0000")
     private String telefoneTrabalhoMae;
 
     public Long getIdMae() {
@@ -83,6 +90,14 @@ public class Mae {
 
     public void setEnderecoMae(String enderecoMae) {
         this.enderecoMae = enderecoMae;
+    }
+
+    public String getNumeroCasaMae() {
+        return numeroCasaMae;
+    }
+
+    public void setNumeroCasaMae(String numeroCasaMae) {
+        this.numeroCasaMae = numeroCasaMae;
     }
 
     public String getCepMae() {

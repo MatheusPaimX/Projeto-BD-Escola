@@ -29,29 +29,30 @@ public class PaiService {
                 .findAll()
                 .stream()
                 .map(p -> new PaiDto(
-                    p.getIdPai(),
-                    p.getNomePai(),
-                    p.getEnderecoPai(),
-                    p.getTelefonePai(),
-                    p.getTrabalhoPai(),
-                    p.getTelefoneTrabalhoPai()
-                ))
+                        p.getIdPai(),
+                        p.getNomePai(),
+                        p.getEnderecoPai(),
+                        p.getNumeroCasaPai(),
+                        p.getTelefonePai(),
+                        p.getTrabalhoPai(),
+                        p.getTelefoneTrabalhoPai()))
                 .collect(Collectors.toList());
     }
 
     public List<PaiDto> buscarPorNomePai(String nomePai) {
         List<Pai> pais = paiRepository.findByNomePaiContainingIgnoreCase(nomePai);
         return pais.stream()
-            .map(p -> new PaiDto(
-                p.getIdPai(),
-                p.getNomePai(),
-                p.getEnderecoPai(),
-                p.getTelefonePai(),
-                p.getTrabalhoPai(),
-                p.getTelefoneTrabalhoPai()
-                
-            ))
-            .collect(Collectors.toList());
+                .map(p -> new PaiDto(
+                        p.getIdPai(),
+                        p.getNomePai(),
+                        p.getEnderecoPai(),
+                        p.getNumeroCasaPai(),
+                        p.getTelefonePai(),
+                        p.getTrabalhoPai(),
+                        p.getTelefoneTrabalhoPai()
+
+                ))
+                .collect(Collectors.toList());
     }
 
     public Pai buscarPorId(Long id) {
@@ -72,7 +73,7 @@ public class PaiService {
     }
 
     public Pai salvar(Pai pai) {
-        
+
         Optional<Pai> cpfExistente = paiRepository.findByCpfPai(pai.getCpfPai());
 
         Optional<Pai> rgExistente = paiRepository.findByRgPai(pai.getRgPai());
@@ -84,11 +85,9 @@ public class PaiService {
         if (rgExistente.isPresent()) {
             throw new RuntimeException("RG já cadastrado!");
         }
-    
 
         return paiRepository.save(pai);
     }
-
 
     public Pai atualizar(Long id, Pai novaPai) {
         return paiRepository.findById(id)
@@ -97,6 +96,7 @@ public class PaiService {
                     pai.setNomePai(novaPai.getNomePai());
                     pai.setNascimentoPai(novaPai.getNascimentoPai());
                     pai.setEnderecoPai(novaPai.getEnderecoPai());
+                    pai.setNumeroCasaPai(novaPai.getNumeroCasaPai());
                     pai.setCepPai(novaPai.getCepPai());
                     pai.setCpfPai(novaPai.getCpfPai());
                     pai.setRgPai(novaPai.getRgPai());
@@ -107,12 +107,12 @@ public class PaiService {
                     pai.setTelefoneTrabalhoPai(novaPai.getTelefoneTrabalhoPai());
                     return paiRepository.save(pai);
                 })
-                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Mãe não encontrada"));
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Pai não encontrada"));
     }
 
     public void deletar(Long id) {
         if (!paiRepository.existsById(id)) {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Pai não encontrada");
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Pai não encontrado");
         }
         paiRepository.deleteById(id);
     }
@@ -122,9 +122,9 @@ public class PaiService {
                 pai.getIdPai(),
                 pai.getNomePai(),
                 pai.getEnderecoPai(),
+                pai.getNumeroCasaPai(),
                 pai.getTelefonePai(),
                 pai.getTrabalhoPai(),
-                pai.getTelefoneTrabalhoPai()
-        );
+                pai.getTelefoneTrabalhoPai());
     }
 }

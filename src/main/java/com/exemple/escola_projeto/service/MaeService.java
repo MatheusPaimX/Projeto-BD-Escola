@@ -30,29 +30,30 @@ public class MaeService {
                 .findAll()
                 .stream()
                 .map(m -> new MaeDto(
-                    m.getIdMae(),
-                    m.getNomeMae(),
-                    m.getEnderecoMae(),
-                    m.getTelefoneMae(),
-                    m.getTrabalhoMae(),
-                    m.getTelefoneTrabalhoMae()
-                ))
+                        m.getIdMae(),
+                        m.getNomeMae(),
+                        m.getEnderecoMae(),
+                        m.getNumeroCasaMae(),
+                        m.getTelefoneMae(),
+                        m.getTrabalhoMae(),
+                        m.getTelefoneTrabalhoMae()))
                 .collect(Collectors.toList());
     }
 
     public List<MaeDto> buscarPorNomeMae(String nomeMae) {
         List<Mae> maes = maeRepository.findByNomeMaeContainingIgnoreCase(nomeMae);
         return maes.stream()
-            .map(m -> new MaeDto(
-                m.getIdMae(),
-                m.getNomeMae(),
-                m.getEnderecoMae(),
-                m.getTelefoneMae(),
-                m.getTrabalhoMae(),
-                m.getTelefoneTrabalhoMae()
-                
-            ))
-            .collect(Collectors.toList());
+                .map(m -> new MaeDto(
+                        m.getIdMae(),
+                        m.getNomeMae(),
+                        m.getEnderecoMae(),
+                        m.getNumeroCasaMae(),
+                        m.getTelefoneMae(),
+                        m.getTrabalhoMae(),
+                        m.getTelefoneTrabalhoMae()
+
+                ))
+                .collect(Collectors.toList());
     }
 
     public Mae buscarPorId(Long id) {
@@ -67,7 +68,7 @@ public class MaeService {
     }
 
     public Mae salvar(Mae mae) {
-        
+
         Optional<Mae> cpfExistente = maeRepository.findByCpfMae(mae.getCpfMae());
 
         Optional<Mae> rgExistente = maeRepository.findByRgMae(mae.getRgMae());
@@ -79,11 +80,9 @@ public class MaeService {
         if (rgExistente.isPresent()) {
             throw new RuntimeException("RG já cadastrado!");
         }
-    
 
         return maeRepository.save(mae);
     }
-
 
     public Mae atualizar(Long id, Mae novaMae) {
         return maeRepository.findById(id)
@@ -91,6 +90,7 @@ public class MaeService {
                     mae.setNomeMae(novaMae.getNomeMae());
                     mae.setNascimentoMae(novaMae.getNascimentoMae());
                     mae.setEnderecoMae(novaMae.getEnderecoMae());
+                    mae.setNumeroCasaMae(novaMae.getNumeroCasaMae());
                     mae.setCepMae(novaMae.getCepMae());
                     mae.setCpfMae(novaMae.getCpfMae());
                     mae.setRgMae(novaMae.getRgMae());
@@ -116,9 +116,9 @@ public class MaeService {
                 mae.getIdMae(),
                 mae.getNomeMae(),
                 mae.getEnderecoMae(),
+                mae.getNumeroCasaMae(),
                 mae.getTelefoneMae(),
                 mae.getTrabalhoMae(),
-                mae.getTelefoneTrabalhoMae()
-        );
+                mae.getTelefoneTrabalhoMae());
     }
 }
