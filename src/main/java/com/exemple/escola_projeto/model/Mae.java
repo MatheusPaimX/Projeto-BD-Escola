@@ -5,6 +5,8 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Pattern;
 
 @Entity
 @Table(name = "maes")
@@ -14,50 +16,45 @@ public class Mae {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idMae;
 
-    // @NotBlank(message = "O nome da mãe é obrigatório")
+    @NotNull(message = "O nome da mãe é obrigatório")
     private String nomeMae;
 
-    // @NotNull(message = "A data de nascimento da mãe é obrigatória")
+    @NotNull(message = "A data de nascimento da mãe é obrigatória")
     private String nascimentoMae;
 
-    // @NotBlank(message = "O endereço da mãe é obrigatório")
+    @NotNull(message = "O endereço da mãe é obrigatório")
     private String enderecoMae;
 
-    // @NotBlank(message = "O número da casa da mãe é obrigatório")
+    @NotNull(message = "O número da casa da mãe é obrigatório")
     private String numeroCasaMae;
 
-    // @NotBlank(message = "O CEP da mãe é obrigatório")
-    // @Pattern(regexp = "^\\d{5}-\\d{3}$", message = "CEP deve estar no formato
-    // 00000-000")
+    @NotNull(message = "O CEP da mãe é obrigatório")
+    @Pattern(regexp = "^\\d{5}-\\d{3}$", message = "CEP deve estar no formato 00000-000")
     private String cepMae;
 
-    // @NotBlank(message = "O CPF da mãe é obrigatório")
-    // @Pattern(regexp = "^\\d{3}\\.\\d{3}\\.\\d{3}-\\d{2}$", message = "CPF deve
-    // estar no formato 000.000.000-00")
+    @NotNull(message = "O CPF da mãe é obrigatório")
+    @Pattern(regexp = "^\\d{3}\\.\\d{3}\\.\\d{3}-\\d{2}$", message = "CPF deve estar no formato 000.000.000-00")
     private String cpfMae;
 
-    // @NotBlank(message = "O RG da mãe é obrigatório")
+    @NotNull(message = "O RG da mãe é obrigatório")
     private String rgMae;
 
-    // @NotBlank(message = "A profissão da mãe é obrigatória")
+    @NotNull(message = "A profissão da mãe é obrigatória")
     private String profissaoMae;
 
-    // @NotBlank(message = "O telefone da mãe é obrigatório")
-    // @Pattern(regexp = "^\\(\\d{2}\\) \\d{4}-\\d{4}$", message = "Telefone deve
-    // estar no formato (00) 0000-0000")
+    @NotNull(message = "O telefone da mãe é obrigatório")
+    @Pattern(regexp = "^\\(\\d{2}\\) \\d{4}-\\d{4}$", message = "Telefone deveestar no formato (00) 0000-0000")
     private String telefoneMae;
 
-    // @NotBlank(message = "O e-mail da mãe é obrigatório")
-    // @Pattern(regexp = "^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$", message = "E-mail
-    // inválido")
+    @NotNull(message = "O e-mail da mãe é obrigatório")
+    @Pattern(regexp = "^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$", message = "E-mail inválido")
     private String emailMae;
 
-    // @NotBlank(message = "O local de trabalho da mãe é obrigatório")
+    @NotNull(message = "O local de trabalho da mãe é obrigatório")
     private String trabalhoMae;
 
-    // @NotBlank(message = "O telefone de trabalho da mãe é obrigatório")
-    // @Pattern(regexp = "^\\(\\d{2}\\) \\d{4}-\\d{4}$", message = "Telefone de
-    // trabalho da mãe deve estar no formato (00) 0000-0000")
+    @NotNull(message = "O telefone de trabalho da mãe é obrigatório")
+    @Pattern(regexp = "^\\(\\d{2}\\) \\d{4}-\\d{4}$", message = "Telefone de trabalho da mãe deve estar no formato (00) 0000-0000")
     private String telefoneTrabalhoMae;
 
     public Long getIdMae() {

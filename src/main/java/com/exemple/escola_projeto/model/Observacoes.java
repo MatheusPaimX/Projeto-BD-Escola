@@ -5,6 +5,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "observacoes")
@@ -14,6 +15,7 @@ public class Observacoes {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idObservacoes;
 
+    @NotNull(message = "O tipo de matrícula é obrigatório")
     private String matriculaTipo;
 
     private String escola;
@@ -22,24 +24,30 @@ public class Observacoes {
 
     private String irmaosNome;
 
+    @NotNull(message = "O Especialista é obrigatório")
     private String temEspecialista;
 
     private String especialista;
 
+    @NotNull(message = "As Alergias são obrigatórias")
     private String temAlergias;
 
     private String alergia;
 
+    @NotNull(message = "O Medicamento é obrigatório")
     private String temMedicamento;
 
     private String medicamento;
 
     private String reside;
 
+    @NotNull(message = "O nome do responsável é obrigatório")
     private String respNome;
 
+    @NotNull(message = "O telefone do responsável é obrigatório")
     private String respTelefone;
 
+    @NotNull(message = "As pessoas autorizadas são obrigatórias")
     private String pessoasAutorizadas;
    
     public Long getIdObservacoes() {

@@ -1,31 +1,32 @@
+// src/main/java/com/exemple/escola_projeto/service/UsuarioService.java
 package com.exemple.escola_projeto.service;
-// package com.exemple.escola_projeto.service;
 
-// import java.util.Optional;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Service;
 
-// import org.springframework.stereotype.Service;
+import com.exemple.escola_projeto.model.Usuario;
+import com.exemple.escola_projeto.repository.UsuarioRepository;
 
-// import com.exemple.escola_projeto.model.Usuario;
-// import com.exemple.escola_projeto.repository.UsuarioRepository;
+@Service
+public class UsuarioService {
 
-// @Service
-// public class UsuarioService {
+    @Autowired
+    private UsuarioRepository repo;
 
-//     private final UsuarioRepository repository;
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
-//     public UsuarioService(UsuarioRepository repository) {
-//         this.repository = repository;
-//     }
-
-//     public Usuario cadastrar(Usuario usuario) {
-//         return repository.save(usuario);
-//     }
-
-//     public Optional<Usuario> buscarPorEmail(String email) {
-//         return repository.findByEmail(email);
-//     }
-
-//     public Optional<Usuario> buscarPorUsername(String username) {
-//         return repository.findByUsername(username);
-//     }
-// }
+    /**
+     * Valida username e senha.
+     * @throws RuntimeException se usuário não existir ou senha inválida
+     */
+    public Usuario validaCredenciais(String username, String rawPassword) {
+        Usuario user = repo.findByUsername(username)
+                .orElseThrow(() -> new RuntimeException("Usuário não encontrado"));
+        if (!passwordEncoder.matches(rawPassword, user.getPassword())) {
+            throw new RuntimeException("Senha inválida");
+        }
+        return user;
+    }
+}

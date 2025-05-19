@@ -5,6 +5,8 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Pattern;
 
 @Entity
 @Table(name = "pais")
@@ -14,50 +16,45 @@ public class Pai {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idPai;
 
-    // @NotBlank(message = "O nome do Pai é obrigatório")
+    @NotNull(message = "O nome do Pai é obrigatório")
     private String nomePai;
 
-    // @NotNull(message = "A data de nascimento do Pai é obrigatória")
+    @NotNull(message = "A data de nascimento do Pai é obrigatória")
     private String nascimentoPai;
 
-    // @NotBlank(message = "O endereço do Pai é obrigatório")
+    @NotNull(message = "O endereço do Pai é obrigatório")
     private String enderecoPai;
 
-    // @NotBlank(message = "O número da casa do Pai é obrigatório")
+    @NotNull(message = "O número da casa do Pai é obrigatório")
     private String numeroCasaPai;
 
-    // @NotBlank(message = "O CEP do Pai é obrigatório")
-    // @Pattern(regexp = "^\\d{5}-\\d{3}$", message = "CEP deve estar no formato
-    // 00000-000")
+    @NotNull(message = "O CEP do Pai é obrigatório")
+    @Pattern(regexp = "^\\d{5}-\\d{3}$", message = "CEP deve estar no formato // 00000-000")
     private String cepPai;
 
-    // @NotBlank(message = "O CPF do Pai é obrigatório")
-    // @Pattern(regexp = "^\\d{3}\\.\\d{3}\\.\\d{3}-\\d{2}$", message = "CPF deve
-    // estar no formato 000.000.000-00")
+    @NotNull(message = "O CPF do Pai é obrigatório")
+    @Pattern(regexp = "^\\d{3}\\.\\d{3}\\.\\d{3}-\\d{2}$", message = "CPF deve // estar no formato 000.000.000-00")
     private String cpfPai;
 
-    // @NotBlank(message = "O RG do Pai é obrigatório")
+    @NotNull(message = "O RG do Pai é obrigatório")
     private String rgPai;
 
-    // @NotBlank(message = "A profissão do Pai é obrigatória")
+    @NotNull(message = "A profissão do Pai é obrigatória")
     private String profissaoPai;
 
-    // @NotBlank(message = "O telefone do Pai é obrigatório")
-    // @Pattern(regexp = "^\\(\\d{2}\\) \\d{4}-\\d{4}$", message = "Telefone deve
-    // estar no formato (00) 0000-0000")
+    @NotNull(message = "O telefone do Pai é obrigatório")
+    @Pattern(regexp = "^\\(\\d{2}\\) \\d{4}-\\d{4}$", message = "Telefone deve // estar no formato (00) 0000-0000")
     private String telefonePai;
 
-    // @NotBlank(message = "O e-mail do Pai é obrigatório")
-    // @Pattern(regexp = "^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$", message = "E-mail
-    // inválido")
+    @NotNull(message = "O e-mail do Pai é obrigatório")
+    @Pattern(regexp = "^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$", message = "E-mail // inválido")
     private String emailPai;
 
-    // @NotBlank(message = "O local de trabalho do Pai é obrigatório")
+    @NotNull(message = "O local de trabalho do Pai é obrigatório")
     private String TrabalhoPai;
 
-    // @NotBlank(message = "O telefone de trabalho do Pai é obrigatório")
-    // @Pattern(regexp = "^\\(\\d{2}\\) \\d{4}-\\d{4}$", message = "Telefone de
-    // trabalho do pai deve estar no formato (00) 0000-0000")
+    @NotNull(message = "O telefone de trabalho do Pai é obrigatório")
+    @Pattern(regexp = "^\\(\\d{2}\\) \\d{4}-\\d{4}$", message = "Telefone de // trabalho do pai deve estar no formato (00) 0000-0000")
     private String telefoneTrabalhoPai;
 
     // Getters and Setters
