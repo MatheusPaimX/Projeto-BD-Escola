@@ -42,7 +42,6 @@ public class MaeController {
     public List<MaeDto> buscarMaesPorNome(
             @RequestParam(name = "nomeMae", required = false) String nomeMae) {
         if (nomeMae == null || nomeMae.isBlank()) {
-            // retorna todos, ou retorna lista vazia, conforme sua regra de negócio
             return maeService.listarTodosDto();
         }
         return maeService.buscarPorNomeMae(nomeMae);
@@ -64,7 +63,6 @@ public class MaeController {
             Mae maeSalvo = maeService.salvar(mae);
             return new ResponseEntity<>(maeSalvo, HttpStatus.CREATED);
         } catch (RuntimeException e) {
-            // Retorna erro se o CPF já estiver cadastrado
             return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
         }
     }

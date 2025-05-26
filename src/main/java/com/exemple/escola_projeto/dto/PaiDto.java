@@ -1,5 +1,8 @@
 package com.exemple.escola_projeto.dto;
 
+import lombok.Data;
+
+@Data
 public class PaiDto {
 
     private Long idPai;
@@ -28,59 +31,5 @@ public class PaiDto {
         this.telefoneTrabalhoPai = telefoneTrabalhoPai;
     }
 
-    public Long getIdPai() {
-        return idPai;
-    }
-
-    public void setIdPai(Long idPai) {
-        this.idPai = idPai;
-    }
-
-    public String getNomePai() {
-        return nomePai;
-    }
-
-    public void setNomePai(String nomePai) {
-        this.nomePai = nomePai;
-    }
-
-    public String getEnderecoPai() {
-        return enderecoPai;
-    }
-
-    public void setEnderecoPai(String enderecoPai) {
-        this.enderecoPai = enderecoPai;
-    }
-
-    public String getNumeroCasaPai() {
-        return numeroCasaPai;
-    }
-
-    public void setNumeroCasaPai(String numeroCasaPai) {
-        this.numeroCasaPai = numeroCasaPai;
-    }
-
-    public String getTelefonePai() {
-        return telefonePai;
-    }
-
-    public void setTelefonePai(String telefonePai) {
-        this.telefonePai = telefonePai;
-    }
-
-    public String getTrabalhoPai() {
-        return trabalhoPai;
-    }
-
-    public void setTrabalhoPai(String trabalhoPai) {
-        this.trabalhoPai = trabalhoPai;
-    }
-
-    public String getTelefoneTrabalhoPai() {
-        return telefoneTrabalhoPai;
-    }
-
-    public void setTelefoneTrabalhoPai(String telefoneTrabalhoPai) {
-        this.telefoneTrabalhoPai = telefoneTrabalhoPai;
-    }
+   
 }

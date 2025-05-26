@@ -4,11 +4,12 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Pattern;
 
 @Entity
+@Table(name = "alunos")
 public class Aluno {
 
     @Id
@@ -32,11 +33,6 @@ public class Aluno {
     private String sexo;
 
     @NotBlank(message = "O CPF é obrigatório")
-    @Pattern(
-            regexp = "^\\d{3}\\.\\d{3}\\.\\d{3}-\\d{2}$",
-            message = "CPF deve estar no formato 000.000.000-00"
-    )
-    
     private String cpf;
 
     @NotBlank(message = "O RG é obrigatório")

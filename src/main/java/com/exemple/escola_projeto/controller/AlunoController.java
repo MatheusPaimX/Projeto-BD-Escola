@@ -43,7 +43,6 @@ public class AlunoController {
     public List<AlunoDto> buscarAlunosPorNome(
             @RequestParam(name = "nome", required = false) String nome) {
         if (nome == null || nome.isBlank()) {
-            // retorna todos, ou retorna lista vazia, conforme sua regra de negócio
             return alunoService.listarTodosDto();
         }
         return alunoService.buscarPorNome(nome);
@@ -65,7 +64,6 @@ public class AlunoController {
             Aluno alunoSalvo = alunoService.salvar(aluno);
             return new ResponseEntity<>(alunoSalvo, HttpStatus.CREATED);
         } catch (RuntimeException e) {
-            // Retorna erro se o CPF já estiver cadastrado
             return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
         }
     }

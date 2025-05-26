@@ -1,5 +1,8 @@
 package com.exemple.escola_projeto.dto;
 
+import lombok.Data;
+
+@Data
 public class ObservacoesDto {
 
     
@@ -41,93 +44,7 @@ public class ObservacoesDto {
         this.pessoasAutorizadas = pessoasAutorizadas;
     }
 
-    public Long getIdObservacoes() {
-        return idObservacoes;
-    }
-
-    public void setIdObservacoes(Long idObservacoes) {
-        this.idObservacoes = idObservacoes;
-    }
-
-    public String getTemEspecialista() {
-        return temEspecialista;
-    }
-
-    public void setTemEspecialista(String temEspecialista) {
-        this.temEspecialista = temEspecialista;
-    }
-
-    public String getEspecialista() {
-        return especialista;
-    }
-
-    public void setEspecialista(String especialista) {
-        this.especialista = especialista;
-    }
-
-    public String getTemAlergias() {
-        return temAlergias;
-    }
-
-    public void setTemAlergias(String temAlergias) {
-        this.temAlergias = temAlergias;
-    }
-
-    public String getAlergia() {
-        return alergia;
-    }
-
-    public void setAlergia(String alergia) {
-        this.alergia = alergia;
-    }
-
-    public String getTemMedicamento() {
-        return temMedicamento;
-    }
-
-    public void setTemMedicamento(String temMedicamento) {
-        this.temMedicamento = temMedicamento;
-    }
-
-    public String getMedicamento() {
-        return medicamento;
-    }
-
-    public void setMedicamento(String medicamento) {
-        this.medicamento = medicamento;
-    }
-
-    public String getReside() {
-        return reside;
-    }
-
-    public void setReside(String reside) {
-        this.reside = reside;
-    }
-
-    public String getRespNome() {
-        return respNome;
-    }
-
-    public void setRespNome(String respNome) {
-        this.respNome = respNome;
-    }
-
-    public String getRespTelefone() {
-        return respTelefone;
-    }
-
-    public void setRespTelefone(String respTelefone) {
-        this.respTelefone = respTelefone;
-    }
-
-    public String getPessoasAutorizadas() {
-        return pessoasAutorizadas;
-    }
-
-    public void setPessoasAutorizadas(String pessoasAutorizadas) {
-        this.pessoasAutorizadas = pessoasAutorizadas;
-    }
+   
 
     
 }

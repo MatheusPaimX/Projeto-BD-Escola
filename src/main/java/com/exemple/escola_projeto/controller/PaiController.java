@@ -37,7 +37,6 @@ public class PaiController {
     public List<PaiDto> buscarPaisPorNome(
             @RequestParam(name = "nomePai", required = false) String nomePai) {
         if (nomePai == null || nomePai.isBlank()) {
-            // retorna todos, ou retorna lista vazia, conforme sua regra de negócio
             return paiService.listarTodosDto();
         }
         return paiService.buscarPorNomePai(nomePai);
@@ -71,7 +70,6 @@ public class PaiController {
             Pai paiSalvo = paiService.salvar(pai);
             return new ResponseEntity<>(paiSalvo, HttpStatus.CREATED);
         } catch (RuntimeException e) {
-            // Retorna erro se o CPF já estiver cadastrado
             return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
         }
     }

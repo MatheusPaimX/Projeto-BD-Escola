@@ -49,7 +49,7 @@ public class Observacoes {
 
     @NotNull(message = "As pessoas autorizadas são obrigatórias")
     private String pessoasAutorizadas;
-   
+
     public Long getIdObservacoes() {
         return idObservacoes;
     }
@@ -64,6 +64,14 @@ public class Observacoes {
 
     public void setMatriculaTipo(String matriculaTipo) {
         this.matriculaTipo = matriculaTipo;
+    }
+
+    public String getEscola() {
+        return escola;
+    }
+
+    public void setEscola(String escola) {
+        this.escola = escola;
     }
 
     public String getTemIrmaos() {
@@ -130,14 +138,6 @@ public class Observacoes {
         this.medicamento = medicamento;
     }
 
-    public String getEscola() {
-        return escola;
-    }
-
-    public void setEscola(String escola) {
-        this.escola = escola;
-    }
-
     public String getReside() {
         return reside;
     }
@@ -169,4 +169,6 @@ public class Observacoes {
     public void setPessoasAutorizadas(String pessoasAutorizadas) {
         this.pessoasAutorizadas = pessoasAutorizadas;
     }
+   
+    
 }

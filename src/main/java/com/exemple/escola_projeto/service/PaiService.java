@@ -73,19 +73,6 @@ public class PaiService {
     }
 
     public Pai salvar(Pai pai) {
-
-        Optional<Pai> cpfExistente = paiRepository.findByCpfPai(pai.getCpfPai());
-
-        Optional<Pai> rgExistente = paiRepository.findByRgPai(pai.getRgPai());
-
-        if (cpfExistente.isPresent()) {
-            throw new RuntimeException("CPF já cadastrado!");
-        }
-
-        if (rgExistente.isPresent()) {
-            throw new RuntimeException("RG já cadastrado!");
-        }
-
         return paiRepository.save(pai);
     }
 

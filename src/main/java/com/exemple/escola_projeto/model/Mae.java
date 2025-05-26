@@ -6,7 +6,6 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Pattern;
 
 @Entity
 @Table(name = "maes")
@@ -29,11 +28,9 @@ public class Mae {
     private String numeroCasaMae;
 
     @NotNull(message = "O CEP da mãe é obrigatório")
-    @Pattern(regexp = "^\\d{5}-\\d{3}$", message = "CEP deve estar no formato 00000-000")
     private String cepMae;
 
     @NotNull(message = "O CPF da mãe é obrigatório")
-    @Pattern(regexp = "^\\d{3}\\.\\d{3}\\.\\d{3}-\\d{2}$", message = "CPF deve estar no formato 000.000.000-00")
     private String cpfMae;
 
     @NotNull(message = "O RG da mãe é obrigatório")
@@ -43,18 +40,15 @@ public class Mae {
     private String profissaoMae;
 
     @NotNull(message = "O telefone da mãe é obrigatório")
-    @Pattern(regexp = "^\\(\\d{2}\\) \\d{4}-\\d{4}$", message = "Telefone deveestar no formato (00) 0000-0000")
     private String telefoneMae;
 
     @NotNull(message = "O e-mail da mãe é obrigatório")
-    @Pattern(regexp = "^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$", message = "E-mail inválido")
     private String emailMae;
 
     @NotNull(message = "O local de trabalho da mãe é obrigatório")
     private String trabalhoMae;
 
     @NotNull(message = "O telefone de trabalho da mãe é obrigatório")
-    @Pattern(regexp = "^\\(\\d{2}\\) \\d{4}-\\d{4}$", message = "Telefone de trabalho da mãe deve estar no formato (00) 0000-0000")
     private String telefoneTrabalhoMae;
 
     public Long getIdMae() {
@@ -117,14 +111,6 @@ public class Mae {
         return rgMae;
     }
 
-    public String getTrabalhoMae() {
-        return trabalhoMae;
-    }
-
-    public void setTrabalhoMae(String trabalhoMae) {
-        this.trabalhoMae = trabalhoMae;
-    }
-
     public void setRgMae(String rgMae) {
         this.rgMae = rgMae;
     }
@@ -151,6 +137,14 @@ public class Mae {
 
     public void setEmailMae(String emailMae) {
         this.emailMae = emailMae;
+    }
+
+    public String getTrabalhoMae() {
+        return trabalhoMae;
+    }
+
+    public void setTrabalhoMae(String trabalhoMae) {
+        this.trabalhoMae = trabalhoMae;
     }
 
     public String getTelefoneTrabalhoMae() {

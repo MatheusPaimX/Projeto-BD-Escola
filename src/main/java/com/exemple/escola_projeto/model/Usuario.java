@@ -1,49 +1,38 @@
-// src/main/java/com/exemple/escola_projeto/model/Usuario.java
 package com.exemple.escola_projeto.model;
 
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
+
 @Entity
-@Table(name = "usuarios")
+@Table(name = "usuario")
 public class Usuario {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long idPai;
 
-    @Column(unique = true, nullable = false)
-    private String username;
+    private String login;
+    
+    private String senha;
 
-    @Column(nullable = false)
-    private String password; // já em BCrypt
-
-    public Long getId() {
-        return id;
+    public String getLogin() {
+        return login;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setLogin(String login) {
+        this.login = login;
     }
 
-    public String getUsername() {
-        return username;
+    public String getSenha() {
+        return senha;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setSenha(String senha) {
+        this.senha = senha;
     }
 
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-  
 }

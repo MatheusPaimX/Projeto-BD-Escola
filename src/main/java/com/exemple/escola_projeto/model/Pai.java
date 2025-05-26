@@ -6,7 +6,6 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Pattern;
 
 @Entity
 @Table(name = "pais")
@@ -29,11 +28,9 @@ public class Pai {
     private String numeroCasaPai;
 
     @NotNull(message = "O CEP do Pai é obrigatório")
-    @Pattern(regexp = "^\\d{5}-\\d{3}$", message = "CEP deve estar no formato // 00000-000")
     private String cepPai;
 
     @NotNull(message = "O CPF do Pai é obrigatório")
-    @Pattern(regexp = "^\\d{3}\\.\\d{3}\\.\\d{3}-\\d{2}$", message = "CPF deve // estar no formato 000.000.000-00")
     private String cpfPai;
 
     @NotNull(message = "O RG do Pai é obrigatório")
@@ -43,21 +40,17 @@ public class Pai {
     private String profissaoPai;
 
     @NotNull(message = "O telefone do Pai é obrigatório")
-    @Pattern(regexp = "^\\(\\d{2}\\) \\d{4}-\\d{4}$", message = "Telefone deve // estar no formato (00) 0000-0000")
     private String telefonePai;
 
     @NotNull(message = "O e-mail do Pai é obrigatório")
-    @Pattern(regexp = "^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$", message = "E-mail // inválido")
     private String emailPai;
 
     @NotNull(message = "O local de trabalho do Pai é obrigatório")
-    private String TrabalhoPai;
+    private String trabalhoPai;
 
     @NotNull(message = "O telefone de trabalho do Pai é obrigatório")
-    @Pattern(regexp = "^\\(\\d{2}\\) \\d{4}-\\d{4}$", message = "Telefone de // trabalho do pai deve estar no formato (00) 0000-0000")
     private String telefoneTrabalhoPai;
 
-    // Getters and Setters
     public Long getIdPai() {
         return idPai;
     }
@@ -130,14 +123,6 @@ public class Pai {
         this.profissaoPai = profissaoPai;
     }
 
-    public String getTrabalhoPai() {
-        return TrabalhoPai;
-    }
-
-    public void setTrabalhoPai(String trabalhoPai) {
-        TrabalhoPai = trabalhoPai;
-    }
-
     public String getTelefonePai() {
         return telefonePai;
     }
@@ -154,6 +139,14 @@ public class Pai {
         this.emailPai = emailPai;
     }
 
+    public String getTrabalhoPai() {
+        return trabalhoPai;
+    }
+
+    public void setTrabalhoPai(String trabalhoPai) {
+        this.trabalhoPai = trabalhoPai;
+    }
+
     public String getTelefoneTrabalhoPai() {
         return telefoneTrabalhoPai;
     }
@@ -161,4 +154,5 @@ public class Pai {
     public void setTelefoneTrabalhoPai(String telefoneTrabalhoPai) {
         this.telefoneTrabalhoPai = telefoneTrabalhoPai;
     }
+
 }

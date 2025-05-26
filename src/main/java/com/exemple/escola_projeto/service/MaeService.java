@@ -1,7 +1,6 @@
 package com.exemple.escola_projeto.service;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.springframework.http.HttpStatus;
@@ -68,19 +67,6 @@ public class MaeService {
     }
 
     public Mae salvar(Mae mae) {
-
-        Optional<Mae> cpfExistente = maeRepository.findByCpfMae(mae.getCpfMae());
-
-        Optional<Mae> rgExistente = maeRepository.findByRgMae(mae.getRgMae());
-
-        if (cpfExistente.isPresent()) {
-            throw new RuntimeException("CPF já cadastrado!");
-        }
-
-        if (rgExistente.isPresent()) {
-            throw new RuntimeException("RG já cadastrado!");
-        }
-
         return maeRepository.save(mae);
     }
 

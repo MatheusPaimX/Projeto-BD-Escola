@@ -84,7 +84,7 @@ public class AlunoService {
     }
 
     public Aluno salvar(Aluno aluno) {
-        // Verifica se já existe um aluno com o mesmo CPF
+        
         Optional<Aluno> cpfExistente = alunoRepository.findByCpfContainingIgnoreCase(aluno.getCpf());
 
         Optional<Aluno> rgExistente = alunoRepository.findByRg(aluno.getRg());
@@ -99,7 +99,6 @@ public class AlunoService {
 
 
 
-        // Se não existir, salva o aluno
         return alunoRepository.save(aluno);
     }
 
@@ -126,7 +125,6 @@ public class AlunoService {
                     aluno.setTurno(novoAluno.getTurno());
                     aluno.setTipoSanguineo(novoAluno.getTipoSanguineo());
                     aluno.setRaca(novoAluno.getRaca());
-                    // aluno.setResideCom(novoAluno.getResideCom());
                     return alunoRepository.save(aluno);
                 }).orElseThrow(() -> new RuntimeException("Aluno não encontrado"));
     }
